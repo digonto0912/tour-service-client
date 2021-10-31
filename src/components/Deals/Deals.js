@@ -13,7 +13,7 @@ const Deals = () => {
         <div>
            
             <div id="deals">
-                <h2 className="text-primary mt-5">Our services</h2>
+                <h2 className="text-primary mt-5">Our Services :{deals.length}</h2>
                 <div className="deals-container">
                     {
                        deals.map(deal =><MyDeals deal={deal}></MyDeals>)

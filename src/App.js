@@ -12,6 +12,8 @@ import Login from './components/Login/Login';
 import BookDeal from './components/BookDeal/BookDeal';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import AuthProvider from './context/AuthProvider';
+import AddDeal from './components/AddDeal/AddDeal';
+import ManagesDeal from './components/ManagesDeal/ManagesDeal';
 
 function App() {
   return (
@@ -40,6 +42,13 @@ function App() {
           </Route>
           <Route path='/admin'>
             <Admin></Admin>
+          </Route>
+            <Route path= '/managesDeal'>
+              <ManagesDeal></ManagesDeal>
+            </Route>
+            <Route path='/addDeal'>
+              <AddDeal></AddDeal>
+
           </Route>
           <Route path ='/login'>
             <Login></Login>
