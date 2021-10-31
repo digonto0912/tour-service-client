@@ -14,6 +14,8 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import AuthProvider from './context/AuthProvider';
 import AddDeal from './components/AddDeal/AddDeal';
 import ManagesDeal from './components/ManagesDeal/ManagesDeal';
+import MyOrder from './components/MyOrder/MyOrder';
+import UserRegistrationForm from './components/UserRegistrationForm/UserRegistrationForm';
 
 function App() {
   return (
@@ -40,14 +42,21 @@ function App() {
           <Route path='/deals'>
             <Deals></Deals>
           </Route>
-          <Route path='/admin'>
+            <PrivateRoute path='/admin'>
             <Admin></Admin>
-          </Route>
+            </PrivateRoute>
             <Route path= '/managesDeal'>
               <ManagesDeal></ManagesDeal>
             </Route>
+            <Route path='/myOrder'>
+              <MyOrder></MyOrder>
+            </Route>
             <Route path='/addDeal'>
               <AddDeal></AddDeal>
+
+          </Route>
+            <Route path='/orderDeal/:id'>
+              <UserRegistrationForm></UserRegistrationForm>
 
           </Route>
           <Route path ='/login'>
@@ -59,8 +68,10 @@ function App() {
           </PrivateRoute>
 
           
-          <Route path ='*'></Route>
-          <NotFound></NotFound>
+          <Route path ='*'>
+              <NotFound></NotFound>
+          </Route>
+         
 
         </Switch>
       </BrowserRouter>

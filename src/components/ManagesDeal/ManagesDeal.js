@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 
 
 
 
 const ManagesDeal = () => {
+    const {user}= useAuth();
     const [deal, setDeal] = useState([]);
     useEffect(()=>{
         fetch('http://localhost:5000/deals')
@@ -35,10 +37,24 @@ const ManagesDeal = () => {
         
         
     } 
+
+    const handleAddTocard=(idx)=>{
+        const data = deal[idx];
+        data.email= user.email;
+        console.log(data);
+        fetch("http://localhost:5000/addOrder",{
+            method:"POST",
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(data),
+        })
+        
+    }
     return (
         <div>
             {
-                deal.map(dl => <div className=" d-flex justify-content-center align-items-center mt-5 ">
+                deal.map((dl,index) => <div className=" d-flex justify-content-center align-items-center mt-5 ">
 
                     <div className="mb-5 col-lg-4 col-sm-6  justify-content-center align-items-center">
                         <div className="card shadow-lg w-100 h-100 text-center rounded vehicleCard ">
@@ -54,9 +70,9 @@ const ManagesDeal = () => {
                             <div className="card-footer">
                                 <div className="d-flex align-items-center justify-content-between ">
                                     <h3 className="text-danger fw-bold">${dl?.price} </h3>
-                                    <Link to={`/orderDeal/${dl._id}`}>
-                                        <button className="btn btn-primary">Book Order </button>
-                                    </Link>
+                                    
+                                        <button onClick={()=> handleAddTocard(index)} className="btn btn-primary">Book Order </button>
+                                   
                                   
                                        {
                                         <button onClick={() => handleDelete(dl._id)} className="btn btn-danger">delete </button>

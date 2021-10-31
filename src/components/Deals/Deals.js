@@ -16,8 +16,10 @@ const Deals = () => {
                 <h2 className="text-primary mt-5">Our Services :{deals.length}</h2>
                 <div className="deals-container">
                     {
-                       deals.map(deal =><MyDeals deal={deal}></MyDeals>)
+                       deals.map((deal,index) =><MyDeals deal={deal}></MyDeals>)
+                      
                     }
+                    
                 </div>
             </div>
         </div>
