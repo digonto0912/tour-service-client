@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 
 const MyOrder = () => {
     const {user} =useAuth();
     const [orders,setOrders] =useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/myOrders/${user?.email}`)
+        fetch(`https://ghastly-spirit-92297.herokuapp.com/${user?.email}`)
         .then(res=>res.json())
         .then(data=>setOrders(data));
     },[])
@@ -14,7 +14,7 @@ const MyOrder = () => {
     const handleDelete = id => {
         const proceed = window.confirm('do you want to delete')
         if (proceed) {
-            const url = `http://localhost:5000/deals/${id}`
+            const url = `https://ghastly-spirit-92297.herokuapp.com/${id}`
             fetch(url, { 
                 method: 'DELETE'
             })

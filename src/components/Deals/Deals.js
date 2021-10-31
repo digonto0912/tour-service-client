@@ -5,7 +5,7 @@ import './Deals.css';
 const Deals = () => {
     const [deals,setDeals] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/deals')
+        fetch('https://ghastly-spirit-92297.herokuapp.com/deals')
         .then(res =>res.json())
         .then(data =>setDeals(data));
     },[])

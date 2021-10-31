@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import './BookDeal.css';
@@ -9,10 +9,10 @@ const BookDeal = () => {
     console.log(id);
     const [deal,setDeals] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/deals/${id}`)
+        fetch(`https://ghastly-spirit-92297.herokuapp.com/deals/${id}`)
         .then(res => res.json())
         .then(data =>setDeals(data))
-    },[])
+    },[id])
     // const matchedDeal = deal.filter(dl =>dl._id===id);
     // console.log(matchedDeal);
     return (

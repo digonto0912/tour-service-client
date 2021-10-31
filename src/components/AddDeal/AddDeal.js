@@ -5,7 +5,7 @@ const AddDeal = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
        
-        fetch("http://localhost:5000/addDeal",{
+        fetch("https://ghastly-spirit-92297.herokuapp.com/addDeal",{
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

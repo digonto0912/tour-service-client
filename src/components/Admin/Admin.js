@@ -1,5 +1,4 @@
 import React from 'react';
-import BookDeal from '../BookDeal/BookDeal';
 import { Link } from 'react-router-dom';
 
 const Admin = () => {

@@ -10,7 +10,7 @@ const ManagesDeal = () => {
     const {user}= useAuth();
     const [deal, setDeal] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/deals')
+        fetch('https://ghastly-spirit-92297.herokuapp.com/deals')
         .then(res =>res.json())
         .then(data =>setDeal(data))
 
@@ -19,7 +19,7 @@ const ManagesDeal = () => {
     const handleDelete = id =>{
         const proceed = window.confirm('do you want to delete')
         if(proceed){
-            const url = `http://localhost:5000/deals/${id}`
+            const url = `https://ghastly-spirit-92297.herokuapp.com/deals/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
@@ -42,7 +42,7 @@ const ManagesDeal = () => {
         const data = deal[idx];
         data.email= user.email;
         console.log(data);
-        fetch("http://localhost:5000/addOrder",{
+        fetch("https://ghastly-spirit-92297.herokuapp.com/addOrder",{
             method:"POST",
             headers:{
                 'content-type':'application/json'

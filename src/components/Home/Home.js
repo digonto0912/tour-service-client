@@ -1,5 +1,6 @@
 import React from 'react';
 import Deals from '../Deals/Deals';
+import Footer from '../Footer';
 import Header from '../Header/Header';
 
 const Home = () => {

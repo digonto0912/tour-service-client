@@ -16,6 +16,8 @@ import AddDeal from './components/AddDeal/AddDeal';
 import ManagesDeal from './components/ManagesDeal/ManagesDeal';
 import MyOrder from './components/MyOrder/MyOrder';
 import UserRegistrationForm from './components/UserRegistrationForm/UserRegistrationForm';
+import Footer from './components/Footer';
+import Footers from './components/Footers/Footers';
 
 function App() {
   return (
@@ -75,6 +77,7 @@ function App() {
 
         </Switch>
       </BrowserRouter>
+      <Footers></Footers>
       </AuthProvider>
       
     </div>
