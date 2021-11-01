@@ -19,7 +19,7 @@ const Admin = () => {
 
                         <Link to="/addDeal" className='nav-link text-black'>Add Deal</Link>
                         <Link to="/managesDeal" className='nav-link text-black'>Managed Deal</Link>
-                        <Link to="/admin" className='nav-link text-black'>Admin</Link>
+                        
                         
 
 

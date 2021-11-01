@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import './BookDeal.css';
 import { Link } from 'react-router-dom';
 
+//
 const BookDeal = () => {
     const { id} = useParams();
     console.log(id);
@@ -12,7 +13,7 @@ const BookDeal = () => {
         fetch(`https://ghastly-spirit-92297.herokuapp.com/deals/${id}`)
         .then(res => res.json())
         .then(data =>setDeals(data))
-    },[id])
+    },[])
     // const matchedDeal = deal.filter(dl =>dl._id===id);
     // console.log(matchedDeal);
     return (

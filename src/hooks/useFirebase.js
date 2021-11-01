@@ -7,7 +7,7 @@ import{
     onAuthStateChanged,
     signOut
 } from "firebase/auth";
-import { useEffect } from 'react/cjs/react.development';
+import { useEffect } from 'react';
 initializeAuthentication();
 
 const useFirebase = () => {

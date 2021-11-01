@@ -6,25 +6,27 @@ const MyOrder = () => {
     const {user} =useAuth();
     const [orders,setOrders] =useState([]);
     useEffect(()=>{
-        fetch(`https://ghastly-spirit-92297.herokuapp.com/${user?.email}`)
+        fetch(`https://ghastly-spirit-92297.herokuapp.com/myorders/${user?.email}`)
         .then(res=>res.json())
         .then(data=>setOrders(data));
     },[])
     //delate 
-    const handleDelete = id => {
+    const handleDelete = (id) => {
+        console.log(id);
         const proceed = window.confirm('do you want to delete')
         if (proceed) {
-            const url = `https://ghastly-spirit-92297.herokuapp.com/${id}`
+            const url = `https://ghastly-spirit-92297.herokuapp.com/myorders/${id}`
             fetch(url, { 
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: { "content-type": "application/json" }
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.deletedCount) {
+                    if (data.deletedCount>0) {
                         alert('deleted successfully');
                     }
-                    const remainingDeal = orders.filter(order => order._id !== id)
-                    setOrders(remainingDeal);
+                    const remainingOrders = orders.filter(order => order._id !== id)
+                    setOrders(remainingOrders);
                 });
 
         }
@@ -34,7 +36,7 @@ const MyOrder = () => {
     }
     return (
         <div>
-            <h1>total orders {orders.length}</h1>
+            <h1 className="text-primary">Total booking order {orders.length}</h1>
             {
                 orders.map(order => <div className=" d-flex justify-content-center align-items-center mt-5 ">
 
@@ -44,9 +46,9 @@ const MyOrder = () => {
                                 <img src={order?.img} className="card-img-top h-75 w-75" alt="" />
                             </div>
                             <div className="card-body">
-                                <h3 className="card-title">{order?.name}</h3>
-                                <h5 className="card-title">{order?.duration}</h5>
-                                <p>booking ID: {order._id}</p>
+                                <h3 className="card-title">Name:{order?.name}</h3>
+                                <h5 className="card-title">Duration:{order?.duration}</h5>
+                                <p>booking status: {order.status}</p>
                                 <h5 className="text-danger fw-bold">${order?.price} </h5>
 
                             </div>

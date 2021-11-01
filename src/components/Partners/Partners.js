@@ -1,12 +1,13 @@
 import React from 'react';
+import Partner from '../Partner/Partner';
 const deals = [{
-    name: 'iceland northern light',
+    name: 'Air bnb',
     price: '1130',
     duration: '5 days tour',
     img: 'https://i.ibb.co/VmcfZGC/How-to-See-the-Northern-Lights-in-Iceland-scaled.jpg'
 },
 {
-    name: 'costarica quest',
+    name: 'booking.com',
     price: '1000',
     duration: '3 days tour',
     img: 'https://i.ibb.co/VmcfZGC/How-to-See-the-Northern-Lights-in-Iceland-scaled.jpg'
@@ -34,8 +35,16 @@ const deals = [{
 
 const Partners = () => {
     return (
-        <div>
-            <h1>this is partners</h1>
+        <div className="container " >
+            <h2>Our partner</h2>
+            <div className ="row">
+                {
+                    deals.map(dl => <Partner deal={dl}></Partner>)
+                }
+
+            </div>
+          
+            
            
         </div>
     );

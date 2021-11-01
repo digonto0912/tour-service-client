@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import useAuth from '../../hooks/useAuth';
 
 
@@ -15,6 +15,7 @@ const ManagesDeal = () => {
         .then(data =>setDeal(data))
 
     }, [])
+    //https://ghastly-spirit-92297.herokuapp.com
 //delete operation
     const handleDelete = id =>{
         const proceed = window.confirm('do you want to delete')
@@ -41,6 +42,7 @@ const ManagesDeal = () => {
     const handleAddTocard=(idx)=>{
         const data = deal[idx];
         data.email= user.email;
+        data.status = 'pending';
         console.log(data);
         fetch("https://ghastly-spirit-92297.herokuapp.com/addOrder",{
             method:"POST",
@@ -53,6 +55,7 @@ const ManagesDeal = () => {
     }
     return (
         <div>
+            <h1>Total offer : {deal.length}</h1>
             {
                 deal.map((dl,index) => <div className=" d-flex justify-content-center align-items-center mt-5 ">
 
